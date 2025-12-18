@@ -1,0 +1,257 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, #e8f4fc 0%, #fef6e9 50%, #fce4ec 100%);
+  min-height: 100vh;
+  color: #3d4852;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar - cute style */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 182, 193, 0.2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ffb6c1, #ffa07a);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ff9aa2, #ff8c69);
+}
+
+/* Cute card style */
+.cute-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  border: 3px solid rgba(255, 182, 193, 0.3);
+  box-shadow: 0 8px 32px rgba(255, 182, 193, 0.2);
+}
+
+.cute-card-accent {
+  background: linear-gradient(135deg, #fff5f5 0%, #fffbeb 100%);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  border: 3px solid rgba(255, 182, 193, 0.4);
+  box-shadow: 0 8px 32px rgba(255, 182, 193, 0.25);
+}
+
+/* Gradient text - cute */
+.gradient-text-cute {
+  background: linear-gradient(135deg, #ff6b9d 0%, #ffa07a 50%, #ffd93d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Floating decorations */
+.floating-deco {
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+.deco-star {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.deco-cloud {
+  animation: float-cloud 20s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes float-cloud {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(30px); }
+}
+
+/* Card hover effects - bouncy */
+.card-bounce {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.card-bounce:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 48px rgba(255, 107, 157, 0.3);
+}
+
+/* Pulse animation for marked points */
+.marker-pulse {
+  animation: marker-pulse 2s ease-in-out infinite;
+}
+
+@keyframes marker-pulse {
+  0%, 100% { 
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7);
+  }
+  50% { 
+    transform: scale(1.1);
+    box-shadow: 0 0 0 10px rgba(255, 107, 107, 0);
+  }
+}
+
+/* Big marker indicator */
+.big-marker {
+  position: relative;
+}
+
+.big-marker::before {
+  content: '📌';
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  animation: bounce-marker 1s ease-in-out infinite;
+}
+
+@keyframes bounce-marker {
+  0%, 100% { transform: translateY(-50%) rotate(-10deg); }
+  50% { transform: translateY(-60%) rotate(10deg); }
+}
+
+/* Rainbow border animation */
+.rainbow-border {
+  position: relative;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(90deg, #ff6b9d, #ffa07a, #ffd93d, #87ceeb, #ff6b9d) border-box;
+  border: 4px solid transparent;
+  background-size: 100% 100%, 300% 300%;
+  animation: rainbow-shift 4s linear infinite;
+}
+
+@keyframes rainbow-shift {
+  0% { background-position: 0% 50%, 0% 50%; }
+  100% { background-position: 0% 50%, 300% 50%; }
+}
+
+/* Cute button style */
+.btn-cute {
+  background: linear-gradient(135deg, #ff6b9d 0%, #ff8a80 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 24px;
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-cute:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 107, 157, 0.5);
+}
+
+.btn-cute:active {
+  transform: scale(0.95);
+}
+
+/* Progress bar cute style */
+.progress-cute {
+  background: linear-gradient(90deg, #ff6b9d, #ffa07a, #ffd93d);
+  border-radius: 50px;
+  position: relative;
+}
+
+.progress-cute::after {
+  content: '✨';
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+}
+
+/* Sticker effect for markers */
+.sticker {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+  transform: rotate(-2deg);
+}
+
+/* Emoji bounce */
+.emoji-bounce {
+  display: inline-block;
+  animation: emoji-jump 2s ease-in-out infinite;
+}
+
+@keyframes emoji-jump {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-5px); }
+  50% { transform: translateY(0); }
+  75% { transform: translateY(-3px); }
+}
+
+/* Subject colors - kid friendly */
+.subject-math { background: linear-gradient(135deg, #74b9ff, #0984e3); }
+.subject-chinese { background: linear-gradient(135deg, #fd79a8, #e84393); }
+.subject-english { background: linear-gradient(135deg, #55efc4, #00b894); }
+.subject-science { background: linear-gradient(135deg, #ffeaa7, #fdcb6e); }
+
+/* Confetti animation */
+.confetti {
+  position: fixed;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* Answer feedback animations */
+.correct-answer {
+  animation: correct-celebrate 0.5s ease-out;
+}
+
+@keyframes correct-celebrate {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.1) rotate(-3deg); }
+  50% { transform: scale(1.05) rotate(3deg); }
+  75% { transform: scale(1.1) rotate(-3deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+
+.wrong-answer {
+  animation: wrong-shake 0.5s ease-out;
+}
+
+@keyframes wrong-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-10px); }
+  40% { transform: translateX(10px); }
+  60% { transform: translateX(-10px); }
+  80% { transform: translateX(10px); }
+}
